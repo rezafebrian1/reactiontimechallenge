@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Reaction Time Challenge</title>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap"
+            rel="stylesheet"
+        />
+        <style>
+            body {
+              font-family: 'Orbitron', Arial Black, Arial, sans-serif;
+              background-color: #222;
+              color: white;
+              text-align: center;
+              margin: 30px 10px;
+            }
+            .lights {
+              display: flex;
+              justify-content: center;
+              margin: 20px 0;
+              gap: 20px;
+            }
+            .light {
+              width: 50px;
+              height: 50px;
+              border-radius: 50%;
+              background-color: #700;
+              box-shadow: none;
+              transition: background-color 0.4s ease, box-shadow 0.4s ease;
+            }
+            .light.on.red {
+              background-color: #f00;
+              box-shadow: 0 0 12px 7px rgba(255,0,0,0.7);
+            }
+            .light.on.green {
+              background-color: #0f0;
+              box-shadow: 0 0 12px 7px rgba(0,255,0,0.7);
+            }
+            #timer {
+              font-size: 40px;
+              margin: 10px 0 5px;
+              font-weight: bold;
+              font-family: 'Orbitron', monospace;
+            }
+            #level {
+              font-size: 20px;
+              margin: 0px 20px 20px;
+              min-height: 28px;
+              color: #0f0;
+              font-weight: normal;
+            }
+            #cooldownInfo {
+              font-size: 16px;
+              color: #ccc;
+              height: 20px;
+              margin-bottom: 15px;
+            }
+            button {
+              font-family: 'Orbitron', monospace;
+              font-size: 22px;
+              padding: 12px 0;
+              margin: 10 20px 20px;
+              cursor: pointer;
+              font-weight: bold;
+              border-radius: 8px;
+              border: none;
+              color: #222;
+              width: calc(100% - 40px);
+              transition: background-color 0.3s ease;
+            }
+            button.start-state {
+              background-color: #00FF00; /* maroon */
+            }
+            button.stop-disabled {
+              background-color: #888;
+              cursor: default;
+            }
+            button.stop-enabled {
+              background-color: #ff0000; /* hue merah cerah */
+            }
+            #result {
+              font-size: 20px;
+              font-weight: bold;
+              color: #fff;
+              min-height: 40px;
+              margin-top: 5px;
+            }
+            h1 {
+            margin-bottom: 40px; /* Jarak bawah judul ke lampu, bisa sesuaikan */
+            }
+
+            .lights {
+              margin: 40px auto 50px auto; /* Jarak bawah lampu agak lebih lebar */
+              max-width: fit-content;
+              gap: 20px;
+              }
+
+            #timer {
+              margin: 30px 0 20px 0; /* Jarak atas ke lampu dan bawah ke tombol */
+              font-size: 40px;
+              font-weight: bold;
+              font-family: 'Orbitron', monospace;
+              }
+              <table id="historyTable" style="margin-left:10px; margin-right:10px;">
+        </style>
+    </head>
+    <body>
+        <h1>Reaction Time Challenge</h1>
+
+        <div class="lights">
+            <div id="light1" class="light"></div>
+            <div id="light2" class="light"></div>
+            <div id="light3" class="light"></div>
+            <div id="light4" class="light"></div>
+            <div id="light5" class="light"></div>
+        </div>
+
+        <div id="timer">00:00.000</div>
+
+        <button id="startStopBtn" class="start-state">START</button>
+
+        <div id="level"></div>
+        <div id="cooldownInfo"></div>
+        <div id="result"></div>
+
+        <h2>History</h2>
+        <table
+            id="historyTable"
+            style="width:80%; margin: 0 auto; border-collapse: collapse; color: white;"
+        >
+            <thead>
+                <tr>
+                    <th style="border: 1px solid white; padding: 8px;">No</th>
+                    <th style="border: 1px solid white; padding: 8px;">
+                        Challenge Name
+                    </th>
+                    <th style="border: 1px solid white; padding: 8px;">
+                        Result
+                    </th>
+                    <th style="border: 1px solid white; padding: 8px;">
+                        Level
+                    </th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+        <script src="main.js"></script>
+    </body>
+</html>
